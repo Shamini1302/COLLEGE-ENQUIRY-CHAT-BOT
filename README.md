@@ -1,2 +1,6 @@
 # COLLEGE-ENQUIRY-CHAT-BOT
 I used the Python language to write the code for the college enquiry chat bot. Python is a versatile and popular language that is well-suited for developing chat bots and other artificial intelligence (AI) applications.
+This code tests the handle_message() method of the CollegeEnquiryBot class with various user messages. It prints the responses returned by the bot for each message. These responses are generated based on the rules defined in the handle_message() method and the data provided in the courses dictionary.
+ It defines a CollegeEnquiryBot class that has functions to handle user messages and provide responses based on the user's input. It also includes a main() function that creates an instance of the CollegeEnquiryBot class and tests it with some sample user messages.
+
+This code can be further extended to add more functionality and improve the chat bot's performance. For example, it can be trained using a large dataset of user messages and responses to improve its ability to understand and respond to different types of questions and requests. It can also be integrated with a messaging platform or a website to enable users to interact with the chat bot in real time.
