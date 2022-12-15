@@ -74,10 +74,10 @@ print(bot.handle_message("What courses do you offer?"))
 # Output: We offer the following courses: Computer Science, Biology, Physics, Business.
 
 print(bot.handle_message("How do I contact you?"))
-# Output: You can contact us by phone at 555-555-5555 or by email at info@college.edu.
+# Output: You can contact us by phone at +254710410793 or by email at craigcarlos95@gmail.com.
 
 print(bot.handle_message("Where are you located?"))
-# Output: We are located at 123 Main Street, Anytown USA.
+# Output: We are located at Nairobi, Kenya.
 
 print(bot.handle_message("What is the Math course?"))
 # Output: Sorry, we don't offer that course.
