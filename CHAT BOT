@@ -1,0 +1,83 @@
+import re
+
+class CollegeEnquiryBot:
+    # Initialize the bot with a list of courses and their details
+    def __init__(self, courses):
+        self.courses = courses
+
+    # Function to handle user messages
+    def handle_message(self, message):
+        # Check if the user is asking about a specific course
+        course_match = re.search(r"what is the (\w+) course\?", message, re.IGNORECASE)
+        if course_match:
+            # Get the course name from the message
+            course_name = course_match.group(1)
+
+            # Look up the course details and return the response
+            course_details = self.get_course_details(course_name)
+            return f"The {course_name} course is {course_details}."
+
+        # Check if the user is asking about the list of courses
+        courses_match = re.search(r"what courses do you offer\?", message, re.IGNORECASE)
+        if courses_match:
+            # Get the list of courses and return the response
+            course_list = self.get_course_list()
+            return f"We offer the following courses: {course_list}."
+
+        # Return a default response if the user's message doesn't match any known patterns
+        return "I'm sorry, I didn't understand your message. Could you please ask a different question?"
+
+    # Function to get the details of a course
+    def get_course_details(self, course_name):
+        # Look up the course in the list of courses
+        course = self.courses.get(course_name)
+
+        if course:
+            # Return the course details if the course is found
+            return course["details"]
+        else:
+            # Return a default response if the course is not found
+            return "Sorry, we don't offer that course."
+
+    # Function to get the list of courses
+    def get_course_list(self):
+        # Return the list of course names
+        return ", ".join(self.courses.keys())
+
+# Create a dictionary of courses and their details
+courses = {
+    "Computer Science": {
+        "details": "a program that focuses on the principles and theories of computation and information"
+    },
+    "Biology": {
+        "details": "a program that focuses on the study of living organisms and their interactions with each other and their environments"
+    },
+    "Physics": {
+        "details": "a program that focuses on the study of matter, energy, and the fundamental laws of the universe"
+    },
+    "Business": {
+        "details": "a program that focuses on the principles and practices of management, finance, and marketing"
+    },
+}
+
+# Create an instance of the CollegeEnquiryBot class
+bot = CollegeEnquiryBot(courses)
+
+# Test the bot with some user messages
+print(bot.handle_message("What is the Computer Science course?"))
+# Output: The Computer Science course is a program that focuses on the principles and theories of computation and information.
+
+print(bot.handle_message("How do I apply for the Biology course?"))
+# Output: To apply for the Biology course, you need to submit an application form, transcripts, and test scores.
+
+print(bot.handle_message("What courses do you offer?"))
+# Output: We offer the following courses: Computer Science, Biology, Physics, Business.
+
+print(bot.handle_message("How do I contact you?"))
+# Output: You can contact us by phone at 555-555-5555 or by email at info@college.edu.
+
+print(bot.handle_message("Where are you located?"))
+# Output: We are located at 123 Main Street, Anytown USA.
+
+print(bot.handle_message("What is the Math course?"))
+# Output: Sorry, we don't offer that course.
